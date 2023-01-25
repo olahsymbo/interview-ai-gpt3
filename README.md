@@ -1,6 +1,6 @@
 # Interview-AI-GPT3
 
-A simple chatbot built using OpenAI GPT-3. 
+A simple chatbot built using OpenAI GPT-3. We used a dataset from another repo as explained in this [Article](https://medium.com/@olahsymbo/fine-tuning-openai-gpt-3-to-build-custom-chatbot-fe2dea524561)  
 
 ## Getting Started
 Create a virtual environment and install the dependencies
