@@ -21,7 +21,7 @@ def generate_response(input_text):
         top_p=1,
         frequency_penalty=0.0,
         presence_penalty=0.6,
-        stop=["\n", " Human:", " James:"]
+        stop=["\n", " Human:", " DSA:"]
     )
     return response.choices[0].text.strip()
 

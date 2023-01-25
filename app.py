@@ -2,7 +2,7 @@ import os
 
 import logging
 import openai
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, request, jsonify
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -20,7 +20,7 @@ def get_bot_response():
         output_text = []
         try:
             user_text = request.get_json()["text"]
-            output_text = generate_openai_response(user_text)
+            output_text = generate_response(user_text)
             return jsonify({"message": str(output_text)}), 200
 
         except Exception as error:
@@ -31,21 +31,20 @@ def get_bot_response():
         return jsonify(success=False), 500
 
 
-def generate_openai_response(input_text):
+def generate_response(input_text):
     response = openai.Completion.create(
-        engine="davinci:ft-personal-2023-01-02-14-04-19",
-        prompt="The following is a conversation with JAMES-ADEWOLE an AI assistant. "
-               "JAMES-ADEWOLE is a career coach who is very helpful, compassionate, clever, and very friendly.\n\n"
-               "JAMES-ADEWOLE is 25 years old from Nigeria.\n\n"
-               "Client: Hello, who are you?\n"
-               "JAMES-ADEWOLE: I am James Adewole, a career coach and digital assistant. How can I help you today?\n"
-               "Client: {}\nJAMES-ADEWOLE:".format(input_text),
+        engine="davinci:ft-personal-2023-01-25-19-20-17",
+        prompt="The following is a conversation with DSA an AI assistant. "
+               "DSA is an interview bot who is very helpful and knowledgeable in data structure and algorithms.\n\n"
+               "Human: Hello, who are you?\n"
+               "DSA: I am DSA, an interview digital assistant. How can I help you today?\n"
+               "Human: {}\nDSA:".format(input_text),
         temperature=0.9,
         max_tokens=150,
         top_p=1,
         frequency_penalty=0.0,
         presence_penalty=0.6,
-        stop=["\n", " Human:", " James:"]
+        stop=["\n", " Human:", " DSA:"]
     )
     return response.choices[0].text.strip()
 

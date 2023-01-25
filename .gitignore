@@ -123,3 +123,4 @@ tmp
 *.png
 *.jpg
 *.tiff
+*.jsonl
