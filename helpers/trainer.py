@@ -3,7 +3,6 @@ import json
 
 import openai
 import pandas as pd
-
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -19,13 +18,11 @@ print(new_df.head(5))
 
 output = []
 for index, row in new_df.iterrows():
-    # print(row)
     completion = ''
     line = {'prompt': row['Human'], 'completion': row['Interview AI']}
 
     output.append(line)
 
-# print(output)
 
 with open('data/data.jsonl', 'w') as outfile:
     for i in output:
@@ -36,5 +33,5 @@ os.system("openai tools fine_tunes.prepare_data -f 'data/data.jsonl' ")
 
 os.system("openai api fine_tunes.create -t 'data/data_prepared.jsonl' -m davinci ")
 
-# In case training interrupted, to resume training use
+# In case training is interrupted, to resume training use
 # os.system("openai api fine_tunes.follow -i ft-jl6Ofsj1vRHTuJTlxd5gI59v ")
