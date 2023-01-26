@@ -23,7 +23,7 @@ OPENAI_KEY=REPLACE-WITH-KEY-FROM-OPENAI
 Simply run:
 
 ``` 
-python helpers/trainers.py
+python helpers/trainer.py
 ```
 
 ### Test the model

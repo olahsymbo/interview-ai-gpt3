@@ -124,3 +124,5 @@ tmp
 *.jpg
 *.tiff
 *.jsonl
+
+helpers/davinci_text_model.ipynb
