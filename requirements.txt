@@ -14,7 +14,7 @@ Jinja2==3.1.2
 MarkupSafe==2.1.2
 multidict==6.0.4
 numpy==1.24.1
-openai==0.26.1
+openai==0.27
 pandas==1.5.3
 python-dateutil==2.8.2
 python-dotenv==0.21.0
