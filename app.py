@@ -31,7 +31,7 @@ def get_bot_response_chatgpt():
             # return jsonify(traceback.format_exc())
             return jsonify({}), 400
     else:
-        return jsonify(success=False), 500
+        return jsonify(success=False), 405
 
 
 session = {"session_id": ""}
@@ -74,7 +74,7 @@ def get_bot_response_chatgpt_no_drift():
             return jsonify({"error": "can't to process the input questions",
                             "status": 400}), 400
     else:
-        return jsonify(success=False), 500
+        return jsonify(success=False), 405
 
 
 if __name__ == "__main__":
