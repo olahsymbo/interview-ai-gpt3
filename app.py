@@ -24,12 +24,14 @@ def get_bot_response_chatgpt():
         try:
             user_text = request.get_json()["text"]
             output_text = generate_response_chatgpt(user_text)
-            return jsonify({"message": str(output_text)}), 200
+            return jsonify({"error": None,
+                            "message": str(output_text),
+                            "status": 200}), 200
 
         except Exception as error:
-            logging.error([error])
-            # return jsonify(traceback.format_exc())
-            return jsonify({}), 400
+            return jsonify({"error": True,
+                            "message": "Can't to process the input questions",
+                            "status": 400}), 400
     else:
         return jsonify(success=False), 405
 
@@ -70,11 +72,12 @@ def get_bot_response_chatgpt_no_drift():
 
         except Exception as error:
             logging.error([error])
-            # return jsonify(traceback.format_exc())
-            return jsonify({"error": "can't to process the input questions",
+            return jsonify({"error": True,
+                            "message": "Can't to process the input questions",
                             "status": 400}), 400
     else:
-        return jsonify(success=False), 405
+        return jsonify({"error": "Not Allowed",
+                        "status": 405}), 405
 
 
 if __name__ == "__main__":
