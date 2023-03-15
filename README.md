@@ -38,3 +38,22 @@ Run:
 python helpers/inference.py
 ```
 You can always change the input text
+
+### Test the model with Flask
+
+Run:
+
+``` 
+python app.py
+```
+
+Example request:
+
+```
+curl --location 'http://127.0.0.1:5000/chat_openai_no_drift' \
+--header 'Content-Type: application/json' \
+--data '{
+    "text": "what is linked list",
+    "session_id": "KJN=87aGNw"
+}'
+```
